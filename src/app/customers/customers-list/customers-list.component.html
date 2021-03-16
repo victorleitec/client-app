@@ -1,0 +1,51 @@
+<h1 class="mt-4">Clientes</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-dark" (click)="newRegister()">
+        <i class="fa fa-plus"></i> Novo
+      </button>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed  table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Data Cadastro</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let client of customers">
+          <td>{{client.id}}</td>
+          <td>{{client.name}}</td>
+          <td>{{client.cpf}}</td>
+          <td>{{client.registerDate}}</td>
+          <td>
+            <button class="btn btn-light" routerLink="/customers/form/{{client.id}}">
+              <i class="fa fa-pencil-alt" style="color: blue"></i>
+            </button>
+
+            <button class="btn btn-light ml-2" data-toggle="modal" data-target="#modalDelecao" (click)="showModalDelete(client)">
+              <i class="fa fa-trash-alt" style="color: red"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="deleteClient">
+
+  </div>
+
+</div>
